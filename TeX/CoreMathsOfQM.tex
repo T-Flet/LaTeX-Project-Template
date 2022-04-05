@@ -1,0 +1,31 @@
+\section{Core Mathematics of Quantum Mechanics}
+\label{sec:CoreMathsOfQM}
+
+
+
+\subsection{Mathematical Bases}
+\label{sec:SubMathBases}
+
+The content of this appendix only serves to showcase a missing reference, how Appendix references are shown and simple lists.\\
+
+As will be made clear shortly (in Definition \ref{def:QMPostulates}), it is specifically \gls{Unitary} Hilbert Spaces which are of concern to \gls{QM},
+and the common notation in treating them is different from the standard mathematical one used for Inner Product Space:
+
+\begin{defn}\label{def:DiracNotation}
+    The \textbf{Dirac Notation} (or \textbf{Bra-Ket Notation}) is the following:
+    \begin{itemize}[noitemsep]
+        \item Vectors are denoted $|v\rangle$ (``Ket'')
+        \item Covectors (vectors of the \gls{Dual Space}) are denoted $\langle v|$ (``Bra'')
+        \item Inner Products are denoted $\langle\cdot|\cdot\rangle$ (``Bra-(c)-Ket''), where \textbf{linearity is swapped} with respect to standard notation:
+            here it is the second term which is linear, while the first is conjugate-linear
+        \item Outer Products are denoted $|\cdot\rangle\langle\cdot|$ (for matching `Ket' and `Bra' this is simply a projector operator)
+    \end{itemize}
+    The fact that `Bra's $\langle\psi|$ are precisely the Dual Vectors of `Ket's $|\psi\rangle$ is the key to the usefulness of this notation:
+    \begin{itemize}[noitemsep]
+        \item The relation between the two is the very elegant one of \glspl{Hermitian Conjugate}: $\langle\psi| = |\psi\rangle^{\dagger}$
+        \item Making the `Bra's interpretable as linear functions on Kets justifies the notation for the Inner Product: $\langle v| \cdot |w\rangle$ is indeed
+            equivalent to $\langle v|w \rangle$ (which is equal to $\langle |w\rangle,|v\rangle \rangle$ in standard Inner Product notation with Ket notation vectors)
+    \end{itemize}
+\end{defn}
+
+

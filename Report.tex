@@ -1,0 +1,106 @@
+%%%% PREAMBLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{Packages}
+
+
+\begin{document}
+
+%%%% TITLE & ABSTRACT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+~\\[3.5cm]
+
+\begin{center}
+
+{\huge \bfseries
+    Title
+}\\[0.5cm]
+
+\textbf{Author Name - Affiliation - Email}\\[2.5cm]
+
+
+\begin{abstract}
+{\it
+    Nice abstract.
+
+    With amazingly clear and concise paper description.
+
+    Compilation date at the bottom of the page if required.
+}
+\end{abstract}
+
+\end{center}
+
+
+\vfill
+\centerline{\large \today}
+
+
+
+%%%% TABLE OF CONTENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\tableofcontents
+\newpage
+
+
+
+%%%% SECTIONS OR CHAPTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{./TeX/Introduction}
+
+% \input for no pagebreak, \include for pagebreak
+
+\input{./TeX/BackgroundTheory}
+\input{./TeX/MeasurementAndDiscrimination}
+\input{./TeX/Libraries}
+
+\input{./TeX/Conclusion}
+
+
+
+%%%% APPENDICES AND BIBLIOGRAPHY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% References here or below
+\addcontentsline{toc}{section}{References}
+\markboth{Conclusion}{}
+\printbibliography
+
+%\newpage
+
+\appendix
+
+\section{Acronyms}
+\label{sec:Acronyms}
+
+\printacronyms
+
+\section{Basic Definitions}
+\label{sec:BasicDefs}
+
+\printglossary
+
+
+% Other Appendices
+
+\input{./TeX/CoreMathsOfQM}
+
+%\newpage
+
+\input{./TeX/DetailedCalculations}
+
+%\newpage
+
+\begin{comment}
+% References here or above
+\addcontentsline{toc}{section}{References}
+\markboth{Conclusion}{}
+\printbibliography
+\end{comment}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

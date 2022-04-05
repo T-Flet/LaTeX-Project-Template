@@ -1,0 +1,81 @@
+\ProvidesPackage{Packages}
+
+%%%% FORM AND FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[cm]{fullpage}
+\usepackage{datetime} % British format dates
+
+\usepackage{verbatim} % Enables comment environment for multi-line comments
+
+\usepackage[xetex]{graphicx}
+\graphicspath{{Img/}}
+
+\usepackage{fontspec}
+% https://tex.stackexchange.com/questions/547547/use-jetbrains-mono-ligatures-with-fontspec-and-lstlisting-environment
+\setmonofont{JetBrains Mono}[
+    Contextuals = Alternate,
+    Ligatures = TeX,
+    Scale = MatchLowercase
+]
+\makeatletter
+\renewcommand*\verbatim@nolig@list{}
+\makeatother
+
+\usepackage{enumitem}
+
+\usepackage{array}
+
+\usepackage{hyperref}
+% % % To be put right before \appendix if hyperlinks link to wrong sections
+% % \renewcommand{\theHchapter}{A\arabic{chapter}}
+% % \renewcommand{\theHsection}{A\arabic{section}}
+
+\usepackage{caption} % Enables captioning of non-environments, e.g. picture not in a figure
+
+\usepackage{xcolor}
+
+\usepackage{listings}
+\lstset{
+    basicstyle = \ttfamily,
+    columns = flexible
+}
+\newcommand*{\lstitem}[1]{ % \item[\lstinline{A}] BBB does not work; use \lstitem{A} BBB
+    \setbox0\hbox{\lstinline{#1}}  
+    \item [\usebox0]
+}
+
+
+
+%%%% MATHS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath, amssymb, amsthm, float, bm, centernot}
+
+\numberwithin{equation}{section}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
+\newtheorem{lem}[thm]{Lemma} % lemma numbers are dependent on theorem numbers
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{rem*}{Remark} % Non-numbered Remark
+
+
+
+%%%% REFERENCING UTILITIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{nameref}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{./TeX/Bibliography.bib}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+\loadglsentries{./TeX/AcronymsAndDefs.tex}
+\renewcommand{\glossarysection}[2][]{} % Print no titles for glossaries
+
+

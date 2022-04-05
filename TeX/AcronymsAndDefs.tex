@@ -1,0 +1,110 @@
+%%%% ACRONYMS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newacronym{QM}{QM}{Quantum Mechanics}
+\newacronym{QI}{QI}{Quantum Information}
+
+\newacronym{GSM}{GSM}{Graph State Machine}
+
+
+
+%%%% BASIC DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Algebra
+
+\begin{comment}
+
+\newglossaryentry{Group}{
+    name={Group},
+    description={
+        A Group $(G,\cdot)$ is an algebraic structure consisting of a set $G$ with an operation $\cdot$ acting on it satisfying the axioms:
+        \begin{description}[noitemsep]
+            \item [G1: Associativity] $\cdot$ has to be associative: $\forall \, x,y,z \in G, \, (xy)z = x(yz)$ 
+            \item [G2: Identity] There has to exist an identity element: $\exists \, 1_{G} \in G \, \big| \, \forall \, x \in G, 1_{G}x = x = x1_{G}$
+            \item [G3: Inverses] Each element has to have an inverse: $\forall \, x \in G, \exists \, x^{-1} \in G \, \big| \, xx^{-1} = 1_{G} = x^{-1}x$
+        \end{description}
+    }
+}
+
+\newglossaryentry{Abelian}{name={Abelian}, description={(Of an algebraic structure) commutative under an operation, e.g. abelian \glspl{Group} and \glspl{Ring} have commutative $\cdot \,$ }}
+\newglossaryentry{Monoid}{name={Monoid}, description={A Monoid $(M,\cdot)$ is an algebraic structure satisfying the \textbf{G1} and \textbf{G2} \gls{Group} axioms}}
+
+\newglossaryentry{Ring}{
+    name={Ring},
+    description={
+        A Ring $(R,+,\cdot)$ is an algebraic structure consisting of a set $R$ with two operations $+$ and $\cdot$ acting on it satisfying the axioms:
+        \begin{description}[noitemsep]
+            \item [R1: Additive Group] $(R,+)$ has to be an \gls{Abelian} \gls{Group}; call its identity element $0_{R}$
+            \item [R2: Multiplicative Monoid] $(R,\cdot)$ has to be a \gls{Monoid}; call its identity element $1_{R}$
+            \item [R3: Multiplication Distributivity] $\cdot$ has to distribute over $+$: $\forall \, x,y,z \in R, \, x(y+z) = xy+xz \, \wedge \, (x+y)z = xz + yz$
+        \end{description}
+    }
+}
+
+\newglossaryentry{Division Ring}{name={Division Ring}, description={A \gls{Ring} in which every non-zero element has an inverse under $\cdot \,$}}
+\newglossaryentry{Field}{name={Field}, description={A commutative \gls{Division Ring}, e.g. $\mathbb{R}$ or $\mathbb{C}$}}
+
+\newglossaryentry{Vector Space}{
+    name={Vector Space},
+    description={
+        A Vector Space $V$ over a \gls{Field} $F$ is an algebraic structure satisfying the axioms:
+        \begin{description}[noitemsep]
+            \item [V1: Additive Group] $(V,+)$ has to be an \gls{Abelian} \gls{Group}
+            \item [V2: Scalar Multiplication] Define the commutative operation $F \times V \rightarrow V$ of scalar multiplication with $1_{F}$ as its identity element,
+                    such that $\forall \, \bm{v} \in V, \, 1_{F}\bm{v} = \bm{v} = \bm{v}1_{F}$
+            \item [V3: Distributivity] Scalar multiplication has to distribute over both vector and field additions:
+                    $\forall \, \bm{v},\bm{w} \in V, \, x,y \in F, \, x(\bm{v}+\bm{w}) = x\bm{v}+x\bm{w} \, \wedge \, (x+y)\bm{v} = x\bm{v}+y\bm{v}$
+        \end{description}
+        Note: vectors are (1,0)-\glspl{Tensor} (while dual vectors are (0,1)-\glspl{Tensor})
+    }
+}
+
+\end{comment}
+
+\newglossaryentry{Dual Space}{
+    name={Dual Space},
+    description={
+        The Dual Space $V^{*}$ of a Vector Space $V$ over a Field $F$ is the set of all linear maps $\phi: V \rightarrow F$ from the Vector Space to its underlying Field;
+        this space becomes a Vector Space itself with the following operations defined on it $\forall \, \phi,\psi \in V^{*}, \, \bm{v} \in V, \, x \in F$:
+        \begin{description}[noitemsep]
+            \item [Addition] $(\phi+\psi)(\bm{v}) = \phi(\bm{v}) + \psi(\bm{v})$
+            \item [Scalar Multiplication] $(x\phi)(\bm{v}) = x(\phi(\bm{v}))$
+        \end{description}
+    }
+}
+
+\newglossaryentry{Banach Space}{
+    name={Banach Space},
+    description={
+        A Banach Space is a Normed Space $(V,||\cdot||)$ which is also a Complete Metric Space $(V,d)$ with metric
+        $d$ naturally induced by norm $||\cdot||$: $d(\bm{v},\bm{w}) = ||\bm{v} - \bm{w}|| \; \forall \, \bm{v},\bm{w} \in V$
+    }
+}
+
+\newglossaryentry{Hermitian Conjugate}{
+    name={Hermitian Conjugate},
+    description={
+        The Hermitian Conjugate $M^{\dagger}$ of a matrix $M$ is the complex conjugate of the transpose of $M$:
+        $M^{\dagger} = \overline{M^{T}} (= \overline{M}^{T}) \iff M^{\dagger}_{ij} = \overline{M_{ji}} \; \forall \, i,j$
+        (This definition can be extended to multidimensional arrays and operators)
+    }
+}
+
+\newglossaryentry{Hermitian}{
+    name={Hermitian},
+    description={
+        A matrix (or operator) $M$ is Hermitian if it is equal to its \gls{Hermitian Conjugate}: $M = M^{\dagger}$
+        Hermitian matrices (and operators) have real eigenvalues and Orthogonal associated eigenvectors.
+        Sums and inverses of Hermitian matrices (and operators) are Hermitian.
+        Products of Hermitian matrices (and operators) are Hermitian if and only if the matrices commute
+    }
+}
+
+\newglossaryentry{Unitary}{
+    name={Unitary},
+    description={
+        A finite-dimensional matrix (or operator) $M$ is unitary if its \gls{Hermitian Conjugate} is its inverse:
+        $M^{\dagger} = M^{-1} \iff M^{\dagger} \cdot M = I = M \cdot M^{\dagger}$ \\
+        In the infinite-dimensional case $M^{\dagger} \cdot M = I \centernot\implies M \cdot M^{\dagger} = I$,
+        but sufficient conditions for unitarity are $M^{\dagger} \cdot M = I$ and surjectivity
+    }
+}

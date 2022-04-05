@@ -1,0 +1,78 @@
+{
+    // LaTeX Settings
+    "latex-workshop.latex.autoBuild.run": "onSave",
+
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Full cycle",
+            "tools": [
+                "xelatex",
+                "makeglossaries",
+                "Biber",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "Worse full cycle",
+            "tools": [
+                "pdflatex",
+                "makeglossaries",
+                "bibtex",
+                "pdflatex"
+            ]
+        }
+    ],
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "Biber",
+            "command": "Biber",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+}

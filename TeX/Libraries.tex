@@ -1,0 +1,63 @@
+\section{Libraries}
+\label{sec:Libraries}
+
+This section is here to showcase the listings environment varieties:
+inline, as item label in a description environment and as a stand-alone listing. 
+
+
+
+\subsection{GSM}
+\label{sec:Sub_GSM}
+
+The \acrlong{GSM} library \cite{GSM} implements a computational construct similar to a Turing Machine over a graph,
+where states are node combinations (though more information may be stored) and where the arbitrary transition function
+can update both state and graph.
+
+\begin{defn}\label{def:GSM}
+Given a \lstinline{Graph} with typed nodes and a \lstinline{State} object of arbitrary structure,
+a \textbf{\gls{GSM}} is defined by the functions it applies to perform a step:
+\begin{description}[noitemsep]
+    \lstitem{Selector} A function to extract a list of nodes from the arbitrarily-structured \lstinline{State} 
+    \lstitem{Scanner} A generalised neighbourhood function, which scans the graph ``around'' the state nodes, 
+            optionally applying some filter (e.g. node type), and returns a scored list of nodes for further processing
+    \lstitem{Updater} A function to process the scan result and thus update the state and/or the graph itself
+\end{description}
+\end{defn}
+
+
+
+\subsection{GPy-ABCD}
+\label{sec:Sub_GPyABCD}
+
+A full listing, which has a label, a caption and language-aware highlighting.
+
+\begin{lstlisting}[label=lst:GPyABCD_function, language=Python, caption=Main GPy-ABCD \cite{GPy_ABCD} model-space search function with default arguments, breaklines=true, basicstyle=\ttfamily\small]
+    import numpy as np
+    from GPy_ABCD import *
+
+
+    if __name__ == '__main__':
+        # Example data
+        X = np.linspace(-10, 10, 101)[:, None]
+        Y = np.cos((X - 5) / 2) ** 2 * X * 2 + np.random.randn(101, 1)
+
+        # Main function call with default arguments
+        best_mods, all_mods, all_exprs, expanded, not_expanded = explore_model_space(X, Y,
+            start_kernels = start_kernels['Default'], p_rules = production_rules['Default'],
+            utility_function = BIC, rounds = 2, beam = [3, 2, 1], restarts = 5,
+            model_list_fitter = fit_mods_parallel_processes, optimiser = GPy_optimisers[0],
+            verbose = True)
+
+        print('\nFull lists of models by round:')
+        for mod_depth in all_mods: print(', '.join([str(mod.kernel_expression) for mod in mod_depth]) + f'\n{len(mod_depth)}')
+
+        print('\n\nTop-3 models\' details:')
+        for bm in best_mods[:3]:
+            model_printout(bm) # See the definition of this convenience function for examples of model details' extraction
+            print('Prediction at X = 11:', bm.predict(np.array([11])[:, None]), '\n')
+
+        from matplotlib import pyplot as plt
+        plt.show()
+\end{lstlisting}
+
+
